@@ -152,7 +152,7 @@ const loadtoolDetails = async id => {
 
 const accuracyBtn = accuracyValue => {
     const loaderSection = document.getElementById('accuracy-btn');
-    if (accuracyValue != 'null') {
+    if (accuracyValue !== null) {
         loaderSection.classList.remove('d-none')
     }
     else {
@@ -238,8 +238,8 @@ const displaytoolDetails = tool =>{
                                 </div>
                               </div>
     `;
-    const acc = accuracyBtn(tool.accuracy.score);
-    const feature = tool.features;
+     const acc = accuracyBtn(tool.accuracy.score);
+    // const feature = tool.features;
     // for (const value of Object.entries(feature)){
     //     const featureContainer = document.getElementById('feature-container');
     //     const featureElement = document.createComment('li');
