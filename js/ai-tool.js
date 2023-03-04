@@ -66,7 +66,7 @@ const processSearch = (dataLimit) => {
 
     aiTools(dataLimit);
 }
-
+// Spinner function
 const toggleSpinner = isLoading => {
     const loaderSection = document.getElementById('loader');
     if (isLoading) {
@@ -77,6 +77,7 @@ const toggleSpinner = isLoading => {
     }
 }
 
+// see more button section
 document.getElementById('btn-show-all').addEventListener('click', function () {
     //processSearch(10);
    // console.log('show all')
