@@ -204,29 +204,83 @@ document.getElementById('btn-show-all').addEventListener('click', function () {
     aiTools();
 })
 
-// const loadtoolDetails = async id => {
-//     const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
-//     const res = await fetch(url);
-//     const data = await res.json();
-//     console.log(data.data);
-//     console.log(id);
-//     //displaytoolDetails(data.data);
-
-// }
-
-const aiDetails = (id) =>{
+const loadtoolDetails = async id => {
     const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
-    fetch(url)
-        .then((res) => res.json())
-        .then((data) => displaytoolDetails(data.data));
+    const res = await fetch(url);
+    const data = await res.json();
+    //console.log(data.data);
+    
+    displaytoolDetails(data.data);
 
 }
 
-// const name= tool.mainFeatures.sensors.map(sensors => sensors);
+
 
 const displaytoolDetails = tool =>{
     console.log(tool);
+    const toolDetails = document.getElementById('tool-details');
+    toolDetails.innerHTML=`
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+                                <div class="col">
+                                  <div class="card">
+                                    <div class="card-body bg-body-tertiary">
+                                      <p class="card-text">${tool.description}</p>
+                                      <div class="m-1 p-1 gap-3 d-flex justify-content-between align-items-center">
+                                            <div class="bg-warning-subtle p-3 ">
+                                                <p>${
+                                                    tool.pricing[0].price === '0' 
+                                                    ? tool.pricing[0].price = "Free of cost/"
+                                                    : tool.pricing[0].price
+                                                }<br>
+                                                ${
+                                                    tool.pricing[0].plan = "Free" 
+                                                    ? tool.pricing[0].plan = "Basic"
+                                                    : tool.pricing[0].plan
+                                                }</p>
+                                            </div>
+                                            <div class="bg-warning-subtle p-3">
+                                                <p>${
+                                                    tool.pricing[1].price 
+                                                }<br>
+                                                ${
+                                                    tool.pricing[1].plan 
+                                                }</p>
+                                            </div>
+                                            <div class="bg-warning-subtle p-3">
+                                                <p>${
+                                                    tool.pricing[2].price
+                                                }<br>
+                                                ${
+                                                    tool.pricing[2].plan 
+                                                }</p>
+                                            </div>
+                                      </div>
+                                      <div class=" mt-3 m-1 p-1 gap-3 d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <p>Lorem ipsum dolor sit amet.</p>
+                                        </div>
+                                        <div>
+                                            <p>Possimus non culpa molestiae laborum.</p>
+                                        </div>
+                                        
+                                  </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col">
+                                  <div class="card">
+                                    <div class="position-relative">
+                                        <img src="..." class="card-img-top" alt="...">
+                                        <button type="button" class="btn btn-success rounded-4 position-absolute top-0 end-0">Success</button>
+                                    </div>
+                                    <div class="card-body">
+                                      <h5 class="card-title text-center">Card title</h5>
+                                      <p class="card-text text-center">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+    `;
 }
 //aiDetails();
-//loadtoolDetails();
 aiTools();
