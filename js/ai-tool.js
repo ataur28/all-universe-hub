@@ -54,77 +54,12 @@ const displayAiTools = (data, dataLimit) => {
                     </div>
         `;
         toolsContainer.appendChild(toolDiv);
-        //const featurItems = tool.features.map(feature => feature);
-        // const featuresContainer = document.getElementById('features-container');
-        // const featuresElement = document.createElement('li');
-        // featuresElement.innerHTML = `
-        // <ol class="foods-list">
-        // ${tool.features.map(feature => `<li>${feature}</li>`).join("")}
-        // </ol>
-        //      `;
-        //      //  <li>${key}, ${value}</li>
-        // featuresContainer.appendChild(featuresElement);
 
     });
     toggleSpinner(false);
 
 }
 
-
-// second 
-
-/*
-const displayAiTools= (data) => {
-    const toolsContainer = document.getElementById('tools-container');
-    console.log(data);
-    // display all tool 
-    data.tools.forEach(tool => {
-        console.log(tool);
-        const toolDiv = document.createElement('div');
-        toolDiv.classList.add('col');
-        toolDiv.innerHTML = `
-        <div class="card p-4">
-                        <img  src="${tool.image}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                        <h1 class="font-bold text-lg">${tool.name}</h>
-                        <ol id="features-container">
-                            <p>${tool.features[0] ? tool.features[0] : ""}</p>
-                            <p>${tool.features[1] ? tool.features[1] : ""}</p>
-                            <p>${tool.features[2] ? tool.features[2] : ""}</p>
-                            <p>${tool.features[3] ? tool.features[3] : ""}</p>
-                        </ol>
-                        <hr>
-                        <div>
-                            <h1 class="font-bold text-lg">${tool.name}</h>
-                            <p><i class="fa-solid fa-calendar-days"></i>${tool.published_in}</p>
-                        </div>
-                            
-                        </div>
-                    </div>
-        `;
-        toolsContainer.appendChild(toolDiv);
-
-        // const features = tool.features;
-        // console.log(features);
-
-        // const items = features.map(feature => feature.features);
-        // //console.log(items);
-
-        // //  for (const [key, value]  of Object.entries(features))
-        // // // for(const i=0; i<Object.entries(features.length);i++)
-        // //  {
-        //   const featuresContainer = document.getElementById('features-container');
-        //   const featuresElement = document.createElement('li');
-        //   featuresElement.innerHTML = `
-        //     <li>${items}</li>
-        //     `;
-        //      //  <li>${key}, ${value}</li>
-        //  featuresContainer.appendChild(featuresElement);
-         
-        // //  }
-    });
-}
-*/
 
 const processSearch = (dataLimit) => {
     toggleSpinner(true);
