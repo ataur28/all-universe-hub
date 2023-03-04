@@ -217,11 +217,11 @@ const displaytoolDetails = tool =>{
                                   <div class="card">
                                     <div class="position-relative">
                                         <img src="${tool.image_link[0]}" class="card-img-top" alt="...">
-                                        <button type="button" class="btn btn-success rounded-4 position-absolute top-0 end-0">Success</button>
+                                        <button type="button" class="btn btn-success rounded-4 position-absolute top-0 end-0">${tool.accuracy.score ? tool.accuracy.score : "No"} accuracy</button>
                                     </div>
                                     <div class="card-body">
                                       <h5 class="card-title text-center">${tool.input_output_examples[0].input}</h5>
-                                      <p class="card-text text-center">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                      <p class="card-text text-center">${tool.input_output_examples[0].output}</p>
                                     </div>
                                   </div>
                                 </div>
