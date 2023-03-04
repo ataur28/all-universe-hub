@@ -175,7 +175,7 @@ const displaytoolDetails = tool =>{
                                       <div class="m-1 p-1 gap-3 d-flex justify-content-between align-items-center">
                                             <div class="bg-warning-subtle p-3 ">
                                                 <p>${
-                                                    tool.pricing[0].price == '0' 
+                                                    tool.pricing[0].price == '0'
                                                     ? tool.pricing[0].price = "Free of cost/"
                                                     : tool.pricing[0].price
                                                 }<br>
