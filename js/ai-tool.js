@@ -2,7 +2,7 @@ const aiTools = async (dataLimit) => {
     const url = `https://openapi.programming-hero.com/api/ai/tools`
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data.data);
+    //console.log(data.data);
     displayAiTools(data.data, dataLimit);
 }
 
@@ -46,7 +46,7 @@ const displayAiTools = (data, dataLimit) => {
                                 <p><i class="fa-solid fa-calendar-days"></i> ${tool.published_in}</p>
                             </div>
                             <div>
-                            <button type="button" class="btn btn-light rounded-circle" data-bs-toggle="modal" data-bs-target="#toolDetailModal"><i class="fa-solid fa-arrow-right"></i></button>
+                            <button onclick="loadtoolDetails('${tool.id}')" type="button" class="btn btn-light rounded-circle" data-bs-toggle="modal" data-bs-target="#toolDetailModal"><i class="fa-solid fa-arrow-right"></i></button>
                             </div>
                         </div>
                             
@@ -204,13 +204,21 @@ document.getElementById('btn-show-all').addEventListener('click', function () {
     aiTools();
 })
 
-const loadtoolDetails = async id => {
+// const loadtoolDetails = async id => {
+//     const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
+//     const res = await fetch(url);
+//     const data = await res.json();
+//     console.log(data.data);
+//     console.log(id);
+//     //displaytoolDetails(data.data);
+
+// }
+
+const aiDetails = (id) =>{
     const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    console.log(data.data);
-    console.log(id);
-    //displaytoolDetails(data.data);
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => displaytoolDetails(data.data));
 
 }
 
@@ -219,5 +227,6 @@ const loadtoolDetails = async id => {
 const displaytoolDetails = tool =>{
     console.log(tool);
 }
-loadtoolDetails();
+//aiDetails();
+//loadtoolDetails();
 aiTools();
