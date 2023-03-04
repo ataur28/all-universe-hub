@@ -122,7 +122,7 @@ document.getElementById('btn-show-all').addEventListener('click', function () {
                                     <p id="published-in"><i class="fa-solid fa-calendar-days"></i> ${tool.published_in}</p>
                                 </div>
                                 <div>
-                                <button onclick="loadtoolDetails('${tool.id}')" type="button" class="btn btn-light rounded-circle" data-bs-toggle="modal" data-bs-target="#toolDetailModal"><i class="fa-solid fa-arrow-right"></i></button>
+                                <button id="arrow-button" onclick="loadtoolDetails('${tool.id}')" type="button" class="btn btn-light rounded-circle" data-bs-toggle="modal" data-bs-target="#toolDetailModal"><i class="fa-solid fa-arrow-right"></i></button>
                                 </div>
                             </div>
                                 
@@ -205,9 +205,9 @@ const displaytoolDetails = tool =>{
                                         <div>
                                             <h4 class="card-title font-bold text-lg d-block">Featurs</h4>
                                             <ul id="feature-container">
-                                            <li>${tool.features[1].feature_name ? tool.features[1].feature_name  : "" }</li>
-                                            <li>${tool.features[2].feature_name[2] ? tool.features[1].feature_name : "" }</li>
-                                            <li>${tool.features[3].feature_name ? tool.features[1].feature_name : "" }</li>
+                                            <li>${tool.features[1].feature_name? tool.features[1].feature_name  : "" }</li>
+                                            <li>${tool.features[2].feature_name ? tool.features[2].feature_name : "" }</li>
+                                            <li>${tool.features[3].feature_name ? tool.features[3].feature_name : "" }</li>
                                             </ul>
                                             
                                             
@@ -255,28 +255,32 @@ const displaytoolDetails = tool =>{
     // console.log(text);
 }
 
-// sorting part 
 
-const sorting = (a,b)=>{
-    const dateA = new Date(a.published_in);
-    const dateB = new Date(b.published_in);
-    if(dateA>dateB){
-        return 1;
-    }
-    else if(dateA<dateB){
-        return -1;
-    }
-    else{
-        return 0;
-    }
-}
 
-document.getElementById('sorting-data').addEventListener('click',function(){
 
-    const publishedDate = document.getElementById('published-in');
-    const publishedValustring = publishedDate.value;
+// // sorting part 
+
+// const sorting = (a,b)=>{
+//     const dateA = new Date(a.published_in);
+//     const dateB = new Date(b.published_in);
+//     if(dateA>dateB){
+//         return 1;
+//     }
+//     else if(dateA<dateB){
+//         return -1;
+//     }
+//     else{
+//         return 0;
+//     }
+// }
+
+// document.getElementById('sorting-data').addEventListener('click',function(){
+//     displaytoolDetails(data.data);
+
+//     const publishedDate = document.getElementById('published-in');
+//     const publishedValustring = publishedDate.nnerText;
+//     console.log(publishedValustring);
     
-    
-})
+// })
 //aiDetails();
 aiTools();
