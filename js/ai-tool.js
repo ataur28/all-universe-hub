@@ -6,10 +6,7 @@ const aiTools = async (dataLimit) => {
     displayAiTools(data.data, dataLimit);
 }
 
-
-
 const displayAiTools = (data, dataLimit) => {
-
     const toolsContainer = document.getElementById('tools-container');
     toolsContainer.textContent = '';
     // display 10 tool only 
@@ -23,8 +20,6 @@ const displayAiTools = (data, dataLimit) => {
     else {
         showAll.classList.add('d-none');
     }
-
-
 
     // display all tool 
     data.tools.forEach(tool => {
@@ -60,7 +55,6 @@ const displayAiTools = (data, dataLimit) => {
 
 }
 
-
 const processSearch = (dataLimit) => {
     toggleSpinner(true);
 
@@ -88,8 +82,6 @@ document.getElementById('btn-show-all').addEventListener('click', function () {
         //console.log(data.data);
         displayAiTools(data.data, dataLimit);
     }
-
-
 
     const displayAiTools = (data, dataLimit) => {
 
@@ -131,11 +123,8 @@ document.getElementById('btn-show-all').addEventListener('click', function () {
                         </div>
             `;
             toolsContainer.appendChild(toolDiv);
-
-
         });
         toggleSpinner(false);
-
     }
     aiTools();
 })
@@ -206,20 +195,15 @@ const displaytoolDetails = tool =>{
                                         <div>
                                             <h4 class="card-title font-bold text-lg d-block">Featurs</h4>
                                             <ul id="feature-container">
-                                            <li>${tool.features[1].feature_name? tool.features[1].feature_name  : "" }</li>
-                                            <li>${tool.features[2].feature_name ? tool.features[2].feature_name : "" }</li>
-                                            <li>${tool.features[3].feature_name ? tool.features[3].feature_name : "" }</li>
-                                            </ul>
-                                            
-                                            
-                                            
-                                            
+                                                <li>${tool.features[1].feature_name? tool.features[1].feature_name  : "" }</li>
+                                                <li>${tool.features[2].feature_name ? tool.features[2].feature_name : "" }</li>
+                                                <li>${tool.features[3].feature_name ? tool.features[3].feature_name : "" }</li>
+                                            </ul>                                          
                                         </div>
                                         <div>
                                             <h4 class="card-title font-bold text-lg d-block">Integration</h4>
                                             <p>${tool.integrations.map(integration => `<li>${integration}</li>`).join("")}<p>
-                                        </div>
-                                        
+                                        </div>                                       
                                   </div>
                                     </div>
                                   </div>
@@ -245,7 +229,6 @@ const displaytoolDetails = tool =>{
     //     const featureElement = document.createComment('li');
     //     featureElement.innerHTML = `<li>${value} </li>`;
     //     featureContainer.appendChild(featureElement);
-
     // }
     // for (const property in tool.features) {
     //      const featureContainer = document.getElementById('feature-container');
