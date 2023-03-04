@@ -194,9 +194,11 @@ const displaytoolDetails = tool =>{
                                       <div class=" mt-3 m-1 p-1 gap-3 d-flex justify-content-between align-items-center">
                                         <div>
                                             <h4 class="card-title font-bold text-lg d-block">Featurs</h4>
+                                            <ul id="feature-container">
                                             <li>${tool.features[1].feature_name ? tool.features[1].feature_name  : "" }</li>
                                             <li>${tool.features[2].feature_name[2] ? tool.features[1].feature_name : "" }</li>
                                             <li>${tool.features[3].feature_name ? tool.features[1].feature_name : "" }</li>
+                                            </ul>
                                             
                                             
                                             
@@ -226,14 +228,20 @@ const displaytoolDetails = tool =>{
                               </div>
     `;
 
-    // let text = "";
-    // for (let x in tool.features) {
-    // text += tool.features[x];
-    // return text;
+    const feature = tool.features;
+    // for (const value of Object.entries(feature)){
+    //     const featureContainer = document.getElementById('feature-container');
+    //     const featureElement = document.createComment('li');
+    //     featureElement.innerHTML = `<li>${value} </li>`;
+    //     featureContainer.appendChild(featureElement);
+
     // }
     // for (const property in tool.features) {
-    //     console.log(` ${object[property]}`);
-    //   }
+    //      const featureContainer = document.getElementById('feature-container');
+    //     const featureElement = document.createComment('li');
+    //     featureElement.innerHTML = `<li>${value} </li>`;
+    //     featureContainer.appendChild(featureElement);
+    //    }
     // console.log(text);
 }
 
