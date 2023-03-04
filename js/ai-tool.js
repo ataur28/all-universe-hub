@@ -119,7 +119,7 @@ document.getElementById('btn-show-all').addEventListener('click', function () {
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
                                     <h2 class="font-bold text-lg">${tool.name}</h2>
-                                    <p><i class="fa-solid fa-calendar-days"></i> ${tool.published_in}</p>
+                                    <p id="published-in"><i class="fa-solid fa-calendar-days"></i> ${tool.published_in}</p>
                                 </div>
                                 <div>
                                 <button onclick="loadtoolDetails('${tool.id}')" type="button" class="btn btn-light rounded-circle" data-bs-toggle="modal" data-bs-target="#toolDetailModal"><i class="fa-solid fa-arrow-right"></i></button>
@@ -149,6 +149,16 @@ const loadtoolDetails = async id => {
 
 }
 
+const accuracyBtn = accuracyValue => {
+    const loaderSection = document.getElementById('accuracy-btn');
+    if (accuracyValue != 'null') {
+        loaderSection.classList.remove('d-none')
+    }
+    else {
+        loaderSection.classList.add('d-none')
+    }
+}
+
 
 
 const displaytoolDetails = tool =>{
@@ -164,7 +174,7 @@ const displaytoolDetails = tool =>{
                                       <div class="m-1 p-1 gap-3 d-flex justify-content-between align-items-center">
                                             <div class="bg-warning-subtle p-3 ">
                                                 <p>${
-                                                    tool.pricing[0].price === '0' 
+                                                    tool.pricing[0].price == '0' 
                                                     ? tool.pricing[0].price = "Free of cost/"
                                                     : tool.pricing[0].price
                                                 }<br>
@@ -217,17 +227,17 @@ const displaytoolDetails = tool =>{
                                   <div class="card">
                                     <div class="position-relative">
                                         <img src="${tool.image_link[0]}" class="card-img-top" alt="...">
-                                        <button type="button" class="btn btn-success rounded-4 position-absolute top-0 end-0">${tool.accuracy.score ? tool.accuracy.score : "No"} accuracy</button>
+                                        <button id="accuracy-btn" type="button" class="btn btn-success rounded-4 position-absolute top-0 end-0 d-none">${tool.accuracy.score ? tool.accuracy.score : "No"} accuracy</button>
                                     </div>
                                     <div class="card-body">
                                       <h5 class="card-title text-center">${tool.input_output_examples[0].input}</h5>
-                                      <p class="card-text text-center">${tool.input_output_examples[0].output}</p>
+                                      <p class="card-text text-center">${tool.input_output_examples[0].output ? tool.input_output_examples[0].output : "No! Not Yet! Take a break!!!"}</p>
                                     </div>
                                   </div>
                                 </div>
                               </div>
     `;
-
+    const acc = accuracyBtn(tool.accuracy.score);
     const feature = tool.features;
     // for (const value of Object.entries(feature)){
     //     const featureContainer = document.getElementById('feature-container');
@@ -245,5 +255,28 @@ const displaytoolDetails = tool =>{
     // console.log(text);
 }
 
+// sorting part 
+
+const sorting = (a,b)=>{
+    const dateA = new Date(a.published_in);
+    const dateB = new Date(b.published_in);
+    if(dateA>dateB){
+        return 1;
+    }
+    else if(dateA<dateB){
+        return -1;
+    }
+    else{
+        return 0;
+    }
+}
+
+document.getElementById('sorting-data').addEventListener('click',function(){
+
+    const publishedDate = document.getElementById('published-in');
+    const publishedValustring = publishedDate.value;
+    
+    
+})
 //aiDetails();
 aiTools();
